@@ -10,8 +10,8 @@ def generate_token(length=32): # Esta funcion genera un token de 32 caracteres e
     return token01 # Retorno o lo devuelvo la variable token01 para ver su resultado en este caso esta comentado por que nomas era una prueba
 
 
-@app.route('/registroF') # difino la ruta de registro
-def registroF(): # difino la funcion de la ruta de registro llamada registroF
+@app.route('/registroF') # defino la ruta de registro
+def registroF(): # defino la funcion de la ruta de registro llamada registroF
     return render_template('/registro_usuario.html') # lo retorno o lo devuelvo a el html de registro de usuario en este caso el archivo registro_usuario.html y para eso se untiliza render_template
 
 
