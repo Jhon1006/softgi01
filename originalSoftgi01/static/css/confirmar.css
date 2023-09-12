@@ -20,8 +20,12 @@ body, html {
     text-align: center;
     font-size: 20px;
 }
+#padre h3 {
+    color: #FFF;
+}
 
 button[type="submit"] {
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.7);
     margin: 0 auto; /* Centrar el boton*/
     display: block; /* Convertir el botón en un elemento de bloque */
     width: 90%; /* Ancho completo del botón */
@@ -33,5 +37,5 @@ button[type="submit"] {
     color: #FFF; /* Color del texto del botón */
     font-weight: bold; /* Fuente en negrita del texto del botón */
     cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-    font-size: 15px;
+    font-size: 18px;
 }
