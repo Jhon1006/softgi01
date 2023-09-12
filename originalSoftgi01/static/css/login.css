@@ -11,7 +11,7 @@ body {
     max-width: 275px; /* Ancho máximo del formulario */
     margin: 0 auto; /* Centrar el formulario en la página */
     margin-top: 50px; /*distancia en el contenido de ariba entre el formulario*/
-    background-color:#007FE0; /* Color de fondo del formulario */
+    background-color:#459de0; /* Color de fondo del formulario */
     padding: 20px; /* Espacio interno del formulario */
     border-radius: 8px; /* Borde redondeado del formulario */
 }
@@ -56,11 +56,13 @@ input[type="password"] {
     border-bottom: 2px solid #ffffff; /* Línea inferior del campo de entrada */
     background-color: transparent; /* Fondo transparente del campo de entrada */
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.51); 
+    font-size: 16px;
+    color: rgba(29, 26, 26, 0.51); 
 }
 
 /* Estilo del botón de "Ingresar" */
 input[type="submit"] {
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.7);
     margin: 0 auto; /* Centrar el boton*/
     display: block; /* Convertir el botón en un elemento de bloque */
     width: 90%; /* Ancho completo del botón */
@@ -68,8 +70,8 @@ input[type="submit"] {
     margin-top: 35px; /* Espacio superior del botón */
     border: none; /* Sin bordes alrededor del botón */
     border-radius: 15px; /* Borde redondeado del botón */
-    background-color: #0065B3; /* Color de fondo del botón */
-    color: #FFF; /* Color del texto del botón */
+    background-color: #33f13d; /* Color de fondo del botón */
+    color: #FFF; /* Color del texto del botón , color anterior background-color: #0065B3;*/
     font-weight: bold; /* Fuente en negrita del texto del botón */
     cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
 }
@@ -86,7 +88,7 @@ input[type="submit"] {
 .huellas a,
 .usuario a,
 .olvidaste-contraseña a {
-    color: #cacaca; /* Color del texto de los enlaces */
+    color: #f2f2f2; /* Color del texto de los enlaces */
     text-decoration: none; /* Sin subrayado en los enlaces */
 }
 /* Estilo para el efecto de resaltado al pasar el cursor sobre los enlaces */
