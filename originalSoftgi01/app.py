@@ -1,4 +1,9 @@
 from conexion import * #Importo la conexion de la base de datos y las funciones de flask, que en este caso se encuentra en el archivo conexion.py 
+from clientes import Clientes  # Importa la clase Clientes desde clientes.py
+
+
+
+
 
 @app.route('/') # Inicio la ruta princimpla del programa en este caso home que me muestra como pagina principal un login
 def registro(): # Defino la funcion de la ruta principal en este caso la funcion se llama registro
@@ -272,6 +277,62 @@ def recuperar_contraseña(token_rctsn):
         return redirect(url_for('home'))
 
     return render_template('reset_password.html')
+
+#-----------------conexión de la clase cliente------------------
+
+@app.route("/clientes")
+def clientes():
+    if session.get("logueado"):
+        resultado = losClientes.consultar()
+        return render_template('/clientes.html', clien=resultado, nom=session.get("nom_cliente"))
+    else:
+        return render_template('/index.html')
+
+@app.route("/clientes/crear", methods=['GET', 'POST'])
+def crear_cliente():
+    if request.method == 'POST':
+        
+        docclie = request.form['docclie']
+        nomclie = request.form['nomclie']
+        apeclie = request.form['ape_cliente']
+        contclie = request.form['contclie']
+        emaclie = request.form['emaclie']
+        direclie = request.files['direclie']
+        tipopersona = request.form['tipopersona']
+        
+        if not losClientes.buscar(docclie):
+            losClientes.agregar([docclie, nomclie, apeclie, contclie, emaclie, direclie, tipopersona])
+            return redirect('/clientes')
+        else:
+            mensaje="Cliente ya existe"
+            cliente =["",nomclie, apeclie, contclie, emaclie, direclie,tipopersona]
+            return render_template('registrocliente.html', mensaje=mensaje, cliente=cliente)
+    else:
+        return render_template('/index.html')
+    #------------DELETE PROVEEDORES-----------------   
+        
+@app.route("/modificarprovee", methods=['POST'])
+def modificarprovee():
+    if request.method == 'POST':
+
+        docprov = request.form['']
+        nomprov = request.form['']
+        contprov = request.form['']
+        emaprov = request.form['']
+        direprov = request.form['']
+      
+        return redirect('/proveedores')
+    else:
+        return render_template('/index.html')
+
+@app.route('/borraprovee/<docprov>')
+def borraprovee(docprov):
+    if session.get("logueado"):
+        losClientes.borrar(docprov)
+        return redirect('/proveedores')
+    else:
+        return render_template('/index.html')
+
 
 
 #-----------------------------------------------------------Crear proveedores---------------------------------------
