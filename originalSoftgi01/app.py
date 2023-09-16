@@ -292,20 +292,20 @@ def clientes():
 def crear_cliente():
     if request.method == 'POST':
         
-        docum_cliente = request.form['docum_cliente']
-        nom_cliente = request.form['nom_cliente']
-        ape_cliente = request.form['ape_cliente']
-        contacto_cliente = request.form['contacto_cliente']
-        email_cliente = request.form['email_cliente']
-        direcc_cliente = request.files['direcc_cliente']
-        tipo_persona = request.form['tipo_perosona']
+        docclie = request.form['docclie']
+        nomclie = request.form['nomclie']
+        apeclie = request.form['ape_cliente']
+        contclie = request.form['contclie']
+        emaclie = request.form['emaclie']
+        direclie = request.files['direclie']
+        tipopersona = request.form['tipopersona']
         
-        if not losClientes.buscar(docum_cliente):
-            losClientes.agregar([docum_cliente, nom_cliente, ape_cliente, contacto_cliente, email_cliente, direcc_cliente, tipo_persona])
+        if not losClientes.buscar(docclie):
+            losClientes.agregar([docclie, nomclie, apeclie, contclie, emaclie, direclie, tipopersona])
             return redirect('/clientes')
         else:
             mensaje="Cliente ya existe"
-            cliente =["",nom_cliente, ape_cliente, contacto_cliente, email_cliente, direcc_cliente, tipo_persona]
+            cliente =["",nomclie, apeclie, contclie, emaclie, direclie,tipopersona]
             return render_template('registrocliente.html', mensaje=mensaje, cliente=cliente)
     else:
         return render_template('/index.html')

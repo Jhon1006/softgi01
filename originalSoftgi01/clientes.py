@@ -28,3 +28,20 @@ class Clientes:
             return True
         else:
             return False
+        
+    def consultar(self):
+            sql = "SELECT * FROM clientes WHERE borrado=0"
+            self.cursor.execute(sql)
+            resultado = self.cursor.fetchall()
+            self.conexion.commit()
+            return resultado
+        
+    def buscar(self, pla):
+        sql = f"SELECT docclie FROM clientes WHERE docclie = '{pla}'"
+        self.cursor.execute(sql)
+        resultado = self.cursor.fetchall()
+        self.conexion.commit()
+        if(len(resultado)==0):
+             return False
+        else:
+            return True
