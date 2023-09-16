@@ -36,8 +36,8 @@ class Clientes:
             self.conexion.commit()
             return resultado
         
-    def buscar(self, pla):
-        sql = f"SELECT docclie FROM clientes WHERE docclie = '{pla}'"
+    def buscar(self, docclie):
+        sql = f"SELECT docclie FROM clientes WHERE docclie = '{docclie}'"
         self.cursor.execute(sql)
         resultado = self.cursor.fetchall()
         self.conexion.commit()
