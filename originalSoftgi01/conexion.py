@@ -5,7 +5,11 @@ from email.mime.text import MIMEText
 import hashlib, smtplib, random, string, re, datetime, secrets
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadTimeSignature,BadSignature
 from email.message import EmailMessage
+from clientes import Clientes
 
+ 
+
+ 
 # Crear una instancia de la aplicación Flask
 app = Flask(__name__)
 mysql = MySQL()
@@ -33,3 +37,6 @@ mail = Mail(app)
 
 # Inicializar la extensión MySQL
 mysql.init_app(app)
+losClientes = Clientes(mysql,app)#clientes = Clientes()# Crear una instancia de la clase Cliente
+
+'''losClientes = Clientes(mysql, app)'''
