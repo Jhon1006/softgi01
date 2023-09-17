@@ -126,7 +126,7 @@ def confirmar_correo(token): #dlaclaro la funcion con el nombre confirma_correo
 @app.route('/inicio')# Ruta de inicio
 def inicio(): # hago la funcion de la ruta en este caso su nombre es inicio
     if "emaempl" in session:# verifico que se alla iniciado sesion
-        return render_template('inicioexitoso.html') # renderizo a la pagina inicioexitoso.html
+        return render_template('index.html') # renderizo a la pagina inicioexitoso.html
     else: # de lo contrario que no alla inicado sesion
         flash('Algo esta mal en sus datos digitados') # indico un mensaje 
         return redirect(url_for('home')) # redirijo a la pagina home
@@ -280,15 +280,15 @@ def recuperar_contraseña(token_rctsn):
 
 #-----------------conexión de la clase cliente------------------
 
-@app.route("/clientes")
+""" @app.route("/clientes")
 def clientes():
     if session.get("logueado"):
         resultado = losClientes.consultar()
         return render_template('/clientes.html', clien=resultado, nom=session.get("nom_cliente"))
     else:
-        return render_template('/index.html')
+        return render_template('/index.html') """
 
-@app.route("/clientes/crear", methods=['GET', 'POST'])
+""" @app.route("/clientes/crear", methods=['GET', 'POST'])
 def crear_cliente():
     if request.method == 'POST':
         
@@ -307,8 +307,10 @@ def crear_cliente():
             mensaje="Cliente ya existe"
             cliente =["",nomclie, apeclie, contclie, emaclie, direclie,tipopersona]
             return render_template('registrocliente.html', mensaje=mensaje, cliente=cliente)
-    else:
-        return render_template('/index.html')
+    else
+        return render_template('/index.html') """
+
+
     
 @app.route('/buscar_cliente', methods=['POST'])
 def buscar_cliente():
@@ -322,29 +324,25 @@ def buscar_cliente():
         conn.close()
         return render_template('registroclientes.html', resultados=resultados) # Envía los resultados al mismo formulario de registroclientes.html
     
-    #------------DELETE PROVEEDORES-----------------   
-        
-@app.route("/modificarprovee", methods=['POST'])
-def modificarprovee():
-    if request.method == 'POST':
 
-        docprov = request.form['']
-        nomprov = request.form['']
-        contprov = request.form['']
-        emaprov = request.form['']
-        direprov = request.form['']
-      
-        return redirect('/proveedores')
-    else:
-        return render_template('/index.html')
+    #------------DELETE PROVEEDORES-----------------   
+#----------------------------------------------Modificar Provedores ------------------------------------------------       
+@app.route("/modificarprovee", methods=['POST', 'GET'])
+def modificarprovee():
+    documento = request.form['documentoProveedor']
+    nombre = request.form['nombreProveedor']
+    numero = request.form['numeroProveedores']
+    correo = request.form['correoProveedores']
+    direcion = request.form['direccionProveedores']
+    proveedores.modificar([documento,nombre,numero,correo,direcion])
+    return redirect('/proveedores')
+
 
 @app.route('/borraprovee/<docprov>')
 def borraprovee(docprov):
-    if session.get("logueado"):
-        losClientes.borrar(docprov)
-        return redirect('/proveedores')
-    else:
-        return render_template('/index.html')
+    proveedores.borrar(docprov)
+    return redirect('/proveedores')
+
 
 
 
