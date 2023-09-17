@@ -11,7 +11,7 @@ class creaProveedores:
         bsdsql = F" INSERT INTO `proveedores`(`docprov`, `nomprov`, `contprov`, `emaprov`, `direprov`) VALUES ('{agregar[0]}','{agregar[1]}','{agregar[2]}','{agregar[3]}','{agregar[4]}')"
         self.cursor.execute(bsdsql)
         self.conexion.commit()
-<<<<<<< HEAD
+
     
     #modificar Proveedores
     def modificar(self,proveedor):
@@ -24,7 +24,3 @@ class creaProveedores:
         sql=f"UPDATE proveedores SET BORRADO=1 WHERE docprov='{documentoProveedores}'"
         self.cursor.execute(sql)
         self.conexion.commit()
-=======
-
-
->>>>>>> 75d58b3567df07c45dfcbf9d4dcdaa329172ea96

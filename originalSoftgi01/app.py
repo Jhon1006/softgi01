@@ -307,11 +307,10 @@ def crear_cliente():
             mensaje="Cliente ya existe"
             cliente =["",nomclie, apeclie, contclie, emaclie, direclie,tipopersona]
             return render_template('registrocliente.html', mensaje=mensaje, cliente=cliente)
-    else:
-<<<<<<< HEAD
+    else
         return render_template('/index.html') """
-=======
-        return render_template('/index.html')
+
+
     
 @app.route('/buscar_cliente', methods=['POST'])
 def buscar_cliente():
@@ -325,7 +324,7 @@ def buscar_cliente():
         conn.close()
         return render_template('registroclientes.html', resultados=resultados) # Envía los resultados al mismo formulario de registroclientes.html
     
->>>>>>> 75d58b3567df07c45dfcbf9d4dcdaa329172ea96
+
     #------------DELETE PROVEEDORES-----------------   
 #----------------------------------------------Modificar Provedores ------------------------------------------------       
 @app.route("/modificarprovee", methods=['POST', 'GET'])
