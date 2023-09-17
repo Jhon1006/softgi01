@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visaulización de clientes</title>
+    <link rel="stylesheet" href="/originalSoftgi01/static/css/clientestabla.css">
+    <script>
+        function toggleSearch() {
+            var busquedaInput = document.getElementById("busqueda");
+            if (busquedaInput.style.display === "none") {
+                busquedaInput.style.display = "block";
+            } else {
+                busquedaInput.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+  
+  <table class="content-table"> 
+    <thead> 
+        <tr> 
+            <th>ID</th> 
+            <th>Documento cliente</th>
+            <th>Nombre proveedor</th> 
+            <th>Apellido cliente</th> <!-- Celda cabecera de la columna 3 -->
+            <th>Numero contacto</th>
+            <th>Correo electronico</th>
+            <th>Direccción</th>
+            <th>Tipo persona</th>
+        </tr> 
+    </thead> 
+    <tbody> 
+        <tr>
+            <td>1</td>
+            <td>930203</td> 
+            <td>Vidrios y accesorios</td> 
+            <td>Velazco Payan</td> 
+            <td>31222334</td>
+            <td>afvelazco@gmail.com</td>
+            <td>buga calle 4 #24-23</td>
+            <td>Natural</td>
+        </tr> 
+        <tr>
+            <td>2</td>
+            <td>43355998</td> 
+            <td>Avideza</td> 
+            <td>MagPOLLO</td> 
+            <td>3434567</td>
+            <td>avfeledi@hotmail.com</td>
+            <td>Salida Chambimbal</td>
+            <td>Juridica</td>
+        </tr> 
+        <tr> 
+            <td>3</td> 
+            <td>94447766</td> 
+            <td>Trans Malagon</td> 
+            <td>Malgon S.A</td> 
+            <td>3155162171</td>
+            <td>afvecheverr@gmail.com</td>
+            <td>Salida a Media canoa</td>
+            <td>Juridica</td>
+        </tr> 
+    </tbody> 
+</table>
+</body>
+</html>

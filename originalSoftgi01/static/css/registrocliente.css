@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+
+
+img{
+    margin: 0 0 -4px;
+    padding: 0;
+    width: 100%;
+}
+
+
+body,html{
+    margin: 0;
+    padding: 0;
+}
+
+
+form#formu_clientes{
+    margin: 0;
+    padding: 21px;
+}
+.cont-campos {
+    margin: 0;
+    padding: 0;
+}
+.cont-campos  .campo {
+        background: aqua;
+        color: #333;
+    }
+#img-parabri {
+    position: relative;
+}
+    #logo {
+        height: 100vh;
+        margin: 100px;
+        position: absolute;
+
+    
+    }
