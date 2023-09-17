@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visaulización de clientes</title>
+    <script>
+        function toggleSearch() {
+            var busquedaInput = document.getElementById("busqueda");
+            if (busquedaInput.style.display === "none") {
+                busquedaInput.style.display = "block";
+            } else {
+                busquedaInput.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div>
@@ -19,8 +29,20 @@
             </thead>
         </table>
         <div>
-            <input type="text" name="busqueda" placeholder="Buscar cliente por nombre">
-            <button type="submit">Buscar</button>
+            <h1>Clientes</h1>
+    
+            <!-- Botón de búsqueda -->
+            <button onclick="toggleSearch()">Mostrar Búsqueda</button>
+            
+            <!-- Campo de búsqueda (inicialmente oculto) -->
+            <div id="busqueda" style="display: none;">
+                <form method="POST" action="/buscar_cliente">
+                    <label for="busqueda">Buscar Cliente:</label>
+                    <input type="text" id="busquedaInput" name="busqueda" required>
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+        
         </div>
     </div>
 </body>

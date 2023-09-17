@@ -309,6 +309,19 @@ def crear_cliente():
             return render_template('registrocliente.html', mensaje=mensaje, cliente=cliente)
     else:
         return render_template('/index.html')
+    
+@app.route('/buscar_cliente', methods=['POST'])
+def buscar_cliente():
+    if request.method == 'POST':
+        busqueda = request.form['busqueda']
+        # Realiza la consulta en la base de datos utilizando MySQL y Flask-MySQL
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT * FROM clientes WHERE nombre LIKE %s", (f"%{busqueda}%",))
+        resultados = cursor.fetchall()
+        conn.close()
+        return render_template('registroclientes.html', resultados=resultados) # Envía los resultados al mismo formulario de registroclientes.html
+    
     #------------DELETE PROVEEDORES-----------------   
         
 @app.route("/modificarprovee", methods=['POST'])
