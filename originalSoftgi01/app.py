@@ -348,5 +348,22 @@ def borraprovee(docprov):
 
 
 
+#-----------------------------------------------------------Crear proveedores---------------------------------------
+@app.route('/proveedores')
+def proveedoress():
+    return render_template('/provedor/proveedore.html')
+
+@app.route('/crearProveedores', methods=['POST'])
+def crearProveedores():
+    documento = request.form['documentoProveedor']
+    nombre = request.form['nombreProveedor']
+    numero = request.form['numeroProveedores']
+    correo = request.form['correoProveedores']
+    direcion = request.form['direccionProveedores']
+    proveedores.crear([documento,nombre,numero,correo,direcion])
+    return render_template('/htmldeprueba/registradoX.html')
+    
+    
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port="5085")
