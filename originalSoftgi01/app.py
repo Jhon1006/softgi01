@@ -362,6 +362,26 @@ def crearProveedores():
     return render_template('/htmldeprueba/registradoX.html')
     
     
+#-----------------------------------------------------------mostrar proveedores---------------------------------------
+
+@app.route('/muestra_Proveedores')
+def muestra_Proveedores():
+    sql = "SELECT * FROM `proveedores`"           # consulta toda la info de proveedores.
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    resultado = cursor.fetchall()
+    conn.commit()
+    if resultado > 0:
+        return render_template("/provedor/muestra_proveedores.html" resul=resultado)   # si hay resultados se muestran.
+    else:
+        resultado2 = "No hay proveedores registrados"
+        return render_template("/provedor/muestra_proveedores.html" resul2=resultado2)   # sino se muestra el mensaje de resultado2.
+
+                                        
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port="5085")
