@@ -373,10 +373,10 @@ def muestra_Proveedores():
     resultado = cursor.fetchall()
     conn.commit()
     if resultado > 0:
-        return render_template("/provedor/muestra_proveedores.html" resul=resultado)   # si hay resultados se muestran.
+        return render_template("/provedor/muestra_proveedores.html", resul=resultado)   # si hay resultados se muestran.
     else:
         resultado2 = "No hay proveedores registrados"
-        return render_template("/provedor/muestra_proveedores.html" resul2=resultado2)   # sino se muestra el mensaje de resultado2.
+        return render_template("/provedor/muestra_proveedores.html", resul2=resultado2)   # sino se muestra el mensaje de resultado2.
 
                                         
 
