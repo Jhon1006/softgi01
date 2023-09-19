@@ -341,7 +341,7 @@ def modificarprovee():
 @app.route('/borraprovee/<docprov>')
 def borraprovee(docprov):
     proveedores.borrar(docprov)
-    return redirect('/proveedores')
+    return redirect('/muestra_Proveedores')
 
 
 
@@ -366,17 +366,17 @@ def crearProveedores():
 
 @app.route('/muestra_Proveedores')
 def muestra_Proveedores():
-    sql = "SELECT * FROM `proveedores`"           # consulta toda la info de proveedores.
+    sql = "SELECT * FROM `proveedores` WHERE estado='ACTIVO'"           # consulta toda la info de proveedores.
     conn = mysql.connect()
     cursor = conn.cursor()
     cursor.execute(sql)
     resultado = cursor.fetchall()
     conn.commit()
-    if resultado > 0:
-        return render_template("/provedor/muestra_proveedores.html" resul=resultado)   # si hay resultados se muestran.
+    if (len(resultado) >= 1):
+        return render_template("/provedor/muestra_proveedores.html", resul=resultado)   # si hay resultados se muestran.
     else:
         resultado2 = "No hay proveedores registrados"
-        return render_template("/provedor/muestra_proveedores.html" resul2=resultado2)   # sino se muestra el mensaje de resultado2.
+        return render_template("/provedor/muestra_proveedores.html", resul2=resultado2)   # sino se muestra el mensaje de resultado2.
 
                                         
 
